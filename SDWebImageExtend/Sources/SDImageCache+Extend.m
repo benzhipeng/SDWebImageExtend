@@ -26,8 +26,20 @@
     method_exchangeImplementations(originalMethod, swizzledMethod);
 }
 
++ (NSString*)docPath:(NSString*)namespace{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* path = paths[0];
+    if(namespace){
+        path = [paths[0] stringByAppendingPathComponent:namespace];
+    }
+    return path;
+}
+
 - (NSString*)customCachedFileNameForKey:(NSString*)key{
-    if([key hasPrefix:@"http"]){
+    
+    NSString* diskCachePath = [self valueForKeyPath:@"diskCachePath"];
+    if([key hasPrefix:@"http"]
+       && ![diskCachePath isEqualToString:[[self class] docPath:@""]]){
         const char *str = [key UTF8String];
         if (str == NULL) {
             str = "";
