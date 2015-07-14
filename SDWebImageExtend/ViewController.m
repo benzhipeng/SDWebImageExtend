@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "UIImageView+TAWebCache.h"
+#import "UIImageView+WCWebCache.h"
 
 @implementation MyCell
 - (void)awakeFromNib{

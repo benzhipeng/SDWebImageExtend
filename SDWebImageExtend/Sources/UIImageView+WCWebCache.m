@@ -1,12 +1,12 @@
 //
-//  UIImageView+TAWebCache.m
+//  UIImageView+WCWebCache.m
 //  TangramSDKDemo
 //
 //  Created by B.E.N on 15/4/13.
 //  Copyright (c) 2015年 B.E.N. All rights reserved.
 //
 
-#import "UIImageView+TAWebCache.h"
+#import "UIImageView+WCWebCache.h"
 #import "objc/runtime.h"
 #import "UIView+WebCacheOperation.h"
 
@@ -47,7 +47,7 @@
 @end
 
 
-@implementation UIImageView (TAWebCache)
+@implementation UIImageView (WCWebCache)
 
 - (void)setImageWithData:(WCImageViewData*)imageViewData{
     

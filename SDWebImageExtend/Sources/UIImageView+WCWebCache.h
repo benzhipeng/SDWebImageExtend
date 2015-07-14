@@ -1,5 +1,5 @@
 //
-//  UIImageView+TAWebCache.h
+//  UIImageView+WCWebCache.h
 //  SDWebImageExtend
 //
 //  Created by B.E.N on 15/4/13.
@@ -57,7 +57,7 @@
 
 
 
-@interface UIImageView (TAWebCache)
+@interface UIImageView (WCWebCache)
 
 - (void)setImageWithData:(WCImageViewData*)imageViewData;
 

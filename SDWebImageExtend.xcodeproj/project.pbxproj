@@ -16,7 +16,7 @@
 		B5FD69261B54FC5000B2BB96 /* SDWebImageExtendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FD69251B54FC5000B2BB96 /* SDWebImageExtendTests.m */; };
 		B5FD69371B54FD3000B2BB96 /* SDImageCache+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FD69321B54FD3000B2BB96 /* SDImageCache+Extend.m */; };
 		B5FD69381B54FD3000B2BB96 /* SDWebImageManager+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FD69341B54FD3000B2BB96 /* SDWebImageManager+Extend.m */; };
-		B5FD69391B54FD3000B2BB96 /* UIImageView+TAWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FD69361B54FD3000B2BB96 /* UIImageView+TAWebCache.m */; };
+		B5FD69391B54FD3000B2BB96 /* UIImageView+WCWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FD69361B54FD3000B2BB96 /* UIImageView+WCWebCache.m */; };
 		B5FD693B1B54FD8A00B2BB96 /* noimg_pane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5FD693A1B54FD8A00B2BB96 /* noimg_pane@2x.png */; };
 		B5FD693D1B55027F00B2BB96 /* SDWebImageExtend.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B5FD693C1B55027F00B2BB96 /* SDWebImageExtend.podspec */; };
 		CDB977C14E9B251683928618 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5073DE17C281A4B7CB043EFD /* libPods.a */; };
@@ -53,8 +53,8 @@
 		B5FD69321B54FD3000B2BB96 /* SDImageCache+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDImageCache+Extend.m"; sourceTree = "<group>"; };
 		B5FD69331B54FD3000B2BB96 /* SDWebImageManager+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+Extend.h"; sourceTree = "<group>"; };
 		B5FD69341B54FD3000B2BB96 /* SDWebImageManager+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+Extend.m"; sourceTree = "<group>"; };
-		B5FD69351B54FD3000B2BB96 /* UIImageView+TAWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+TAWebCache.h"; sourceTree = "<group>"; };
-		B5FD69361B54FD3000B2BB96 /* UIImageView+TAWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+TAWebCache.m"; sourceTree = "<group>"; };
+		B5FD69351B54FD3000B2BB96 /* UIImageView+WCWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WCWebCache.h"; sourceTree = "<group>"; };
+		B5FD69361B54FD3000B2BB96 /* UIImageView+WCWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WCWebCache.m"; sourceTree = "<group>"; };
 		B5FD693A1B54FD8A00B2BB96 /* noimg_pane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noimg_pane@2x.png"; sourceTree = "<group>"; };
 		B5FD693C1B55027F00B2BB96 /* SDWebImageExtend.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SDWebImageExtend.podspec; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -166,8 +166,8 @@
 				B5FD69321B54FD3000B2BB96 /* SDImageCache+Extend.m */,
 				B5FD69331B54FD3000B2BB96 /* SDWebImageManager+Extend.h */,
 				B5FD69341B54FD3000B2BB96 /* SDWebImageManager+Extend.m */,
-				B5FD69351B54FD3000B2BB96 /* UIImageView+TAWebCache.h */,
-				B5FD69361B54FD3000B2BB96 /* UIImageView+TAWebCache.m */,
+				B5FD69351B54FD3000B2BB96 /* UIImageView+WCWebCache.h */,
+				B5FD69361B54FD3000B2BB96 /* UIImageView+WCWebCache.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 				B5FD69121B54FC5000B2BB96 /* ViewController.m in Sources */,
 				B5FD69371B54FD3000B2BB96 /* SDImageCache+Extend.m in Sources */,
 				B5FD69381B54FD3000B2BB96 /* SDWebImageManager+Extend.m in Sources */,
-				B5FD69391B54FD3000B2BB96 /* UIImageView+TAWebCache.m in Sources */,
+				B5FD69391B54FD3000B2BB96 /* UIImageView+WCWebCache.m in Sources */,
 				B5FD690F1B54FC5000B2BB96 /* AppDelegate.m in Sources */,
 				B5FD690C1B54FC5000B2BB96 /* main.m in Sources */,
 			);
