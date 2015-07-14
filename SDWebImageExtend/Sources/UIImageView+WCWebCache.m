@@ -51,6 +51,7 @@
 
 - (void)setImageWithData:(WCImageViewData*)imageViewData{
     
+    self.clipsToBounds = YES;
     self.contentMode = imageViewData.defaultMode;
     SDWebImageManager* webImageManager = [SDWebImageManager imageManagerWithNamespaces:imageViewData.namespaces];
     SDWebImageOptions options = SDWebImageRetryFailed | SDWebImageLowPriority;
