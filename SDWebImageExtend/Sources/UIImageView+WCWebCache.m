@@ -53,7 +53,7 @@
     
     self.clipsToBounds = YES;
     self.contentMode = imageViewData.defaultMode;
-    SDWebImageManager* webImageManager = [SDWebImageManager imageManagerWithNamespaces:imageViewData.namespaces];
+    SDWebImageManager* webImageManager = [[SDWebImageHelper shareInstance] imageManagerWithNamespaces:imageViewData.namespaces];
     SDWebImageOptions options = SDWebImageRetryFailed | SDWebImageLowPriority;
     
     [self sd_cancelImageLoadOperationWithKey:@"TAUIImageViewImageLoad"];

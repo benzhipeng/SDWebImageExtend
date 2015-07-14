@@ -99,7 +99,7 @@ static  NSString *errorMessages[] = {
     @"http://b.hiphotos.baidu.com/image/w%3D310/sign=4bacd839718da9774e2f802a8051f872/908fa0ec08fa513d27ab77d43f6d55fbb2fbd9b2.jpg",
     @"http://c.hiphotos.baidu.com/image/w%3D310/sign=8db59e60cbfcc3ceb4c0cf32a244d6b7/a50f4bfbfbedab64c9ea5f82f436afc378311ed3.jpg",
     @"http://f.hiphotos.baidu.com/image/w%3D310/sign=3a96cc23cafcc3ceb4c0cf32a244d6b7/a50f4bfbfbedab647ec90dc1f536afc379311e73.jpg",
-    @"/Users/ben/Library/Developer/CoreSimulator/Devices/546CA3B2-A170-461F-B586-5BF46A7CD433/data/Containers/Data/Application/3CED5BFE-6EEA-48FC-81B6-927A1DD875A3/Documents/1.jpg"
+    @"/Users/ben/Library/Developer/CoreSimulator/Devices/546CA3B2-A170-461F-B586-5BF46A7CD433/data/Containers/Data/Application/72067352-594B-4561-9F34-0C7AD4885648/Documents/1.jpg"
 };
 
 @implementation ViewController
@@ -124,15 +124,14 @@ static  NSString *errorMessages[] = {
 
     NSString* url = errorMessages[indexPath.row];
     WCImageViewData* imagedata = [WCImageViewData imageDataWithURL:url placeHolder:[UIImage imageNamed:@"noimg_pane"]];
-    imagedata.namespaces = NAMESPACE_THEME;
-    imagedata.finisheMode = UIViewContentModeScaleToFill;
+    imagedata.namespaces = @"BEN";
     [imageView setImageWithData:imagedata];
     return cell;
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 16 * 5;
+    return 16 * 5 + 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

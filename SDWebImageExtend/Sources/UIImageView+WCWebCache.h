@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIImageView+WebCache.h"
-#import "SDWebImageManager+Extend.h"
+#import "SDWebImageHelper.h"
 
 
 @interface WCImageViewData : NSObject

@@ -10,8 +10,6 @@
 #import <objc/runtime.h>
 #import <CommonCrypto/CommonDigest.h>
 
-NSString* NAMESPACE_DEFAULT = @"Default";
-NSString* NAMESPACE_THEME = @"Theme";
 
 @implementation SDImageCache (Extend)
 
@@ -42,70 +40,6 @@ NSString* NAMESPACE_THEME = @"Theme";
         return filename;
     }else {
         return [key lastPathComponent];
-    }
-}
-
-+ (SDImageCache*)sharedDocImageCache{
-    static dispatch_once_t once;
-    static id instance;
-    dispatch_once(&once, ^{
-        instance = [self new];
-        NSString* path = [[self class] docPath:nil];
-        [instance setValue:path forKey:@"diskCachePath"];
-        [[NSNotificationCenter defaultCenter] removeObserver:instance];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:instance
-                                                 selector:@selector(clearMemory)
-                                                     name:UIApplicationDidReceiveMemoryWarningNotification
-                                                   object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:instance
-                                                 selector:@selector(clearMemory)
-                                                     name:UIApplicationDidEnterBackgroundNotification object:nil];
-    });
-    return instance;
-}
-
-+ (SDImageCache*)sharedDocThemeImageCache{
-    static dispatch_once_t once;
-    static id instance;
-    dispatch_once(&once, ^{
-        instance = [self new];
-        NSString* path = [[self class] docPath:NAMESPACE_THEME];
-        [instance setValue:path forKey:@"diskCachePath"];
-        [[NSNotificationCenter defaultCenter] removeObserver:instance];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:instance
-                                                 selector:@selector(clearMemory)
-                                                     name:UIApplicationDidReceiveMemoryWarningNotification
-                                                   object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:instance
-                                                 selector:@selector(clearMemory)
-                                                     name:UIApplicationDidEnterBackgroundNotification object:nil];
-    });
-    return instance;
-}
-
-+ (NSString*)docPath:(NSString*)namespace{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* path = paths[0];
-    if(namespace){
-        path = [paths[0] stringByAppendingPathComponent:namespace];
-    }
-    return path;
-}
-
-+ (SDImageCache*)imageCacheWithNamespaces:(NSString*)namespaces{
-
-    if(namespaces){
-        if([namespaces isEqualToString:NAMESPACE_DEFAULT]){
-            return [SDImageCache sharedImageCache];
-        }else if([namespaces isEqualToString:NAMESPACE_THEME]){
-            return [SDImageCache sharedDocThemeImageCache];
-        }else {
-            return [SDImageCache sharedDocImageCache];
-        }
-    }else {
-        return [SDImageCache sharedDocImageCache];
     }
 }
 
