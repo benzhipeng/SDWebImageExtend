@@ -10,19 +10,19 @@
 #import "objc/runtime.h"
 #import "UIView+WebCacheOperation.h"
 
-@implementation TAImageViewData
+@implementation WCImageViewData
 
-+ (TAImageViewData*)imageDataWithURL:(NSString*)url{
++ (WCImageViewData*)imageDataWithURL:(NSString*)url{
     
-    TAImageViewData* imageViewData = [[TAImageViewData alloc] init];
+    WCImageViewData* imageViewData = [[WCImageViewData alloc] init];
     imageViewData.url = url;
     return imageViewData;
 }
 
 
-+ (TAImageViewData*)imageDataWithURL:(NSString *)url placeHolder:(UIImage *)placeHolder{
++ (WCImageViewData*)imageDataWithURL:(NSString *)url placeHolder:(UIImage *)placeHolder{
     
-    TAImageViewData* imageViewData = [[TAImageViewData alloc] init];
+    WCImageViewData* imageViewData = [[WCImageViewData alloc] init];
     imageViewData.url = url;
     imageViewData.placeHolder = placeHolder;
     return imageViewData;
@@ -49,7 +49,7 @@
 
 @implementation UIImageView (TAWebCache)
 
-- (void)setImageWithData:(TAImageViewData*)imageViewData{
+- (void)setImageWithData:(WCImageViewData*)imageViewData{
     
     self.contentMode = imageViewData.defaultMode;
     SDWebImageManager* webImageManager = [SDWebImageManager imageManagerWithNamespaces:imageViewData.namespaces];

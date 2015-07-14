@@ -1,6 +1,6 @@
 //
 //  UIImageView+TAWebCache.h
-//  TangramSDKDemo
+//  SDWebImageExtend
 //
 //  Created by B.E.N on 15/4/13.
 //  Copyright (c) 2015年 B.E.N. All rights reserved.
@@ -11,11 +11,11 @@
 #import "SDWebImageManager+Extend.h"
 
 
-@interface TAImageViewData : NSObject
+@interface WCImageViewData : NSObject
 
-+ (TAImageViewData*)imageDataWithURL:(NSString*)url;
++ (WCImageViewData*)imageDataWithURL:(NSString*)url;
 
-+ (TAImageViewData*)imageDataWithURL:(NSString*)url placeHolder:(UIImage*)placeHolder;
++ (WCImageViewData*)imageDataWithURL:(NSString*)url placeHolder:(UIImage*)placeHolder;
 
 /**
  *  图片下载结束之后所在的文件夹 默认为"default" 为SDWebImage自带的文件夹， 传nil或者@""为Document的根目录 其余为Document下的子文件夹
@@ -59,6 +59,6 @@
 
 @interface UIImageView (TAWebCache)
 
-- (void)setImageWithData:(TAImageViewData*)imageViewData;
+- (void)setImageWithData:(WCImageViewData*)imageViewData;
 
 @end

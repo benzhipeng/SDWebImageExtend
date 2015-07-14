@@ -123,7 +123,7 @@ static  NSString *errorMessages[] = {
     UIImageView* imageView = cell.iconImageView;
 
     NSString* url = errorMessages[indexPath.row];
-    TAImageViewData* imagedata = [TAImageViewData imageDataWithURL:url placeHolder:[UIImage imageNamed:@"noimg_pane"]];
+    WCImageViewData* imagedata = [WCImageViewData imageDataWithURL:url placeHolder:[UIImage imageNamed:@"noimg_pane"]];
     imagedata.namespaces = NAMESPACE_THEME;
     imagedata.finisheMode = UIViewContentModeScaleToFill;
     [imageView setImageWithData:imagedata];
