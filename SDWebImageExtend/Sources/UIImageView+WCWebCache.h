@@ -18,7 +18,7 @@
 + (WCImageViewData*)imageDataWithURL:(NSString*)url placeHolder:(UIImage*)placeHolder;
 
 /**
- *  图片下载结束之后所在的文件夹 默认为"default" 为SDWebImage自带的文件夹， 传nil或者@""为Document的根目录 其余为Document下的子文件夹
+ *  图片下载结束之后所在的文件夹 默认为Document的根目录,传"default" 为SDWebImage自带的文件夹,其余为Document下的子文件夹
  */
 @property (nonatomic,strong) NSString*         namespaces;
 /**

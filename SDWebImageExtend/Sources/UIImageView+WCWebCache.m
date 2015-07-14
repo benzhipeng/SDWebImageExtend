@@ -31,7 +31,7 @@
 
 - (id)init{
     if(self = [super init]){
-        self.namespaces = @"default";
+        self.namespaces = nil;
         self.defaultMode = UIViewContentModeScaleAspectFill;
         self.finisheMode = UIViewContentModeScaleAspectFill;
     }
