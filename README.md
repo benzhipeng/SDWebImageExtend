@@ -4,7 +4,7 @@
 ###使用方法 :
 ```objc
 pod 'SDWebImageExtend',:git=>"https://github.com/benzhipeng1024/SDWebImageExtend.git"
-pod install 
+pod  install 
 ```
  
  主要的类 SDWebImageHelper,UIImageView+WCWebCache
