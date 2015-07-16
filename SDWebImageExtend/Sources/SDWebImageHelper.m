@@ -46,7 +46,24 @@
     return path;
 }
 
-
++ (BOOL)checkWheatherHasPropertyWithClass:(id)obj propertyName:(NSString*)propertyName
+{
+    unsigned int i, count = 0;
+    objc_property_t * properties = class_copyPropertyList( self, &count );
+    if ( count == 0 ){
+        free( properties );
+        return NO;
+    }
+    for ( i = 0; i < count; i++ ){
+        NSString* tmp = [NSString stringWithUTF8String: property_getName(properties[i])];
+        if([tmp isEqualToString:propertyName]){
+            free(properties);
+            return YES;
+        }
+    }
+    free(properties);
+    return NO;
+}
 
 - (SDWebImageManager*)imageManagerWithNamespaces:(NSString*)namespaces{
     
@@ -61,16 +78,10 @@
     if(!manager){
         manager = [[SDWebImageManager alloc] init];
         SDImageCache* cache = [[SDImageCache alloc] init];
-        
-        if(class_getProperty([SDImageCache class], [@"diskCachePath" UTF8String]) != NULL){
-            NSAssert(1 , @"源码中的diskCachePath字段不存在需要修改该字段");
-        }
-        
+
+        NSAssert(![[self class] checkWheatherHasPropertyWithClass:cache propertyName:@"diskCachePath"] , @"源码中的diskCachePath字段不存在需要修改该字段");
+        NSAssert(![[self class] checkWheatherHasPropertyWithClass:manager propertyName:@"imageCache"] , @"源码中的imageCache字段不存在需要修改该字段");
         [cache setValue:[[self class] docPath:namespaces] forKeyPath:@"diskCachePath"];
-        if(class_getProperty([SDWebImageManager class], [@"imageCache" UTF8String]) != NULL){
-            NSAssert(1 , @"源码中的imageCache字段不存在需要修改该字段");
-        }
-        
         [manager setValue:cache forKeyPath:@"imageCache"];
         
         //先移除原有的通知
