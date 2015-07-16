@@ -9,6 +9,7 @@
 #import "SDImageCache.h"
 
 @interface SDImageCache (Extend)
+
 @end
 
 

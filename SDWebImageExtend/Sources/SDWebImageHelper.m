@@ -7,6 +7,7 @@
 //
 
 #import "SDWebImageHelper.h"
+#import "objc/runtime.h"
 
 
 @interface SDWebImageHelper ()
@@ -45,6 +46,8 @@
     return path;
 }
 
+
+
 - (SDWebImageManager*)imageManagerWithNamespaces:(NSString*)namespaces{
     
     if(!namespaces){
@@ -58,7 +61,16 @@
     if(!manager){
         manager = [[SDWebImageManager alloc] init];
         SDImageCache* cache = [[SDImageCache alloc] init];
+        
+        if(class_getProperty([SDImageCache class], [@"diskCachePath" UTF8String]) != NULL){
+            NSAssert(1 , @"源码中的diskCachePath字段不存在需要修改该字段");
+        }
+        
         [cache setValue:[[self class] docPath:namespaces] forKeyPath:@"diskCachePath"];
+        if(class_getProperty([SDWebImageManager class], [@"imageCache" UTF8String]) != NULL){
+            NSAssert(1 , @"源码中的imageCache字段不存在需要修改该字段");
+        }
+        
         [manager setValue:cache forKeyPath:@"imageCache"];
         
         //先移除原有的通知

@@ -100,6 +100,9 @@ static  NSString *errorMessages[] = {
     @"http://c.hiphotos.baidu.com/image/w%3D310/sign=8db59e60cbfcc3ceb4c0cf32a244d6b7/a50f4bfbfbedab64c9ea5f82f436afc378311ed3.jpg",
     @"http://f.hiphotos.baidu.com/image/w%3D310/sign=3a96cc23cafcc3ceb4c0cf32a244d6b7/a50f4bfbfbedab647ec90dc1f536afc379311e73.jpg",
     @"/Users/ben/Library/Developer/CoreSimulator/Devices/546CA3B2-A170-461F-B586-5BF46A7CD433/data/Containers/Data/Application/72067352-594B-4561-9F34-0C7AD4885648/Documents/1.jpg"
+    
+    
+
 };
 
 @implementation ViewController
@@ -107,6 +110,9 @@ static  NSString *errorMessages[] = {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+    
+    
     
 }
 
