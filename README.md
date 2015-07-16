@@ -1,9 +1,11 @@
 # SDWebImageExtend
 基于SDWebImage的一些扩展
 
-使用方法 :
- 1.`pod 'SDWebImageExtend',:git=>"https://github.com/benzhipeng1024/SDWebImageExtend.git"`
- 2.`pod install `
+###使用方法 :
+```objc
+pod 'SDWebImageExtend',:git=>"https://github.com/benzhipeng1024/SDWebImageExtend.git"
+pod install 
+```
  
  主要的类 SDWebImageHelper,UIImageView+WCWebCache
  
