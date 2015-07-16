@@ -8,13 +8,16 @@
  主要的类 SDWebImageHelper,UIImageView+WCWebCache
  
 ###下载图片
-`WCImageViewData* imagedata = [WCImageViewData imageDataWithURL:url placeHolder:[UIImage imageNamed:@"noimg_pane"]];`
-`imagedata.namespaces = @"BEN";`
-`[imageView setImageWithData:imagedata];`
+```objc
+WCImageViewData* imagedata = [WCImageViewData imageDataWithURL:url placeHolder:[UIImage imageNamed:@"noimg_pane"]];
+imagedata.namespaces = @"BEN";
+[imageView setImageWithData:imagedata];
+```
 
 ###获取cache和manager
-1.获取cache
-`- (SDImageCache*)imageCacheWithNamespaces:(NSString*)namespaces;`
-2、获取manager
-`- (SDWebImageManager*)imageManagerWithNamespaces:(NSString*)namespaces;`
- 
+```objc
+//获取cache
+- (SDImageCache*)imageCacheWithNamespaces:(NSString*)namespaces;
+//获取manager
+- (SDWebImageManager*)imageManagerWithNamespaces:(NSString*)namespaces;
+```
