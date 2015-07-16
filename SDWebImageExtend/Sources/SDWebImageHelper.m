@@ -49,7 +49,7 @@
 + (BOOL)checkWheatherHasPropertyWithClass:(id)obj propertyName:(NSString*)propertyName
 {
     unsigned int i, count = 0;
-    objc_property_t * properties = class_copyPropertyList( self, &count );
+    objc_property_t * properties = class_copyPropertyList( [obj class], &count );
     if ( count == 0 ){
         free( properties );
         return NO;
@@ -79,8 +79,8 @@
         manager = [[SDWebImageManager alloc] init];
         SDImageCache* cache = [[SDImageCache alloc] init];
 
-        NSAssert(![[self class] checkWheatherHasPropertyWithClass:cache propertyName:@"diskCachePath"] , @"源码中的diskCachePath字段不存在需要修改该字段");
-        NSAssert(![[self class] checkWheatherHasPropertyWithClass:manager propertyName:@"imageCache"] , @"源码中的imageCache字段不存在需要修改该字段");
+        NSAssert([[self class] checkWheatherHasPropertyWithClass:cache propertyName:@"diskCachePath"] , @"源码中的diskCachePath字段不存在需要修改该字段");
+        NSAssert([[self class] checkWheatherHasPropertyWithClass:manager propertyName:@"imageCache"] , @"源码中的imageCache字段不存在需要修改该字段");
         [cache setValue:[[self class] docPath:namespaces] forKeyPath:@"diskCachePath"];
         [manager setValue:cache forKeyPath:@"imageCache"];
         

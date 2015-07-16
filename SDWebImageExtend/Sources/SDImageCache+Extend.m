@@ -39,6 +39,7 @@
 - (NSString*)customCachedFileNameForKey:(NSString*)key{
     
     NSString* diskCachePath = [self valueForKeyPath:@"diskCachePath"];
+    NSAssert(diskCachePath != nil, @"diskCachePath不能为空");
     if([key hasPrefix:@"http"]
        && ![diskCachePath isEqualToString:[[self class] docPath:@""]]){
         const char *str = [key UTF8String];
