@@ -28,6 +28,38 @@
     return imageViewData;
 }
 
++ (WCImageViewData*)imageDataWithURL:(NSString*)url placeHolder:(UIImage*)placeHolder namespace:(NSString *)namespaces
+{
+    WCImageViewData* imageViewData = [[WCImageViewData alloc] init];
+    imageViewData.url = url;
+    imageViewData.placeHolder = placeHolder;
+    imageViewData.namespaces = namespaces;
+    return imageViewData;
+}
+
++ (WCImageViewData*)imageDataWithURL:(NSString*)url placeHolder:(UIImage*)placeHolder namespace:(NSString *)namespaces defaultMode:(UIViewContentMode)defaultMode finisheMode:(UIViewContentMode)finisheMode
+{
+    WCImageViewData* imageViewData = [[WCImageViewData alloc] init];
+    imageViewData.url = url;
+    imageViewData.placeHolder = placeHolder;
+    imageViewData.namespaces = namespaces;
+    imageViewData.defaultMode = defaultMode;
+    imageViewData.finisheMode = finisheMode;
+    return imageViewData;
+}
+
++ (WCImageViewData*)imageDataWithURL:(NSString*)url placeHolder:(UIImage*)placeHolder namespace:(NSString *)namespaces defaultMode:(UIViewContentMode)defaultMode finisheMode:(UIViewContentMode)finisheMode completedBlock:(SDWebImageCompletionWithFinishedBlock)completedBlock
+{
+    WCImageViewData* imageViewData = [[WCImageViewData alloc] init];
+    imageViewData.url = url;
+    imageViewData.placeHolder = placeHolder;
+    imageViewData.namespaces = namespaces;
+    imageViewData.defaultMode = defaultMode;
+    imageViewData.finisheMode = finisheMode;
+    imageViewData.completedBlock = completedBlock;
+    return imageViewData;
+}
+
 
 - (id)init{
     if(self = [super init]){

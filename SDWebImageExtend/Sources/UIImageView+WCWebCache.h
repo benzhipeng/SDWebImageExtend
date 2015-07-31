@@ -17,6 +17,13 @@
 
 + (WCImageViewData*)imageDataWithURL:(NSString*)url placeHolder:(UIImage*)placeHolder;
 
++ (WCImageViewData*)imageDataWithURL:(NSString*)url placeHolder:(UIImage*)placeHolder namespace:(NSString *)namespaces;
+
++ (WCImageViewData*)imageDataWithURL:(NSString*)url placeHolder:(UIImage*)placeHolder namespace:(NSString *)namespaces defaultMode:(UIViewContentMode)defaultMode finisheMode:(UIViewContentMode)finisheMode;
+
++ (WCImageViewData*)imageDataWithURL:(NSString*)url placeHolder:(UIImage*)placeHolder namespace:(NSString *)namespaces defaultMode:(UIViewContentMode)defaultMode finisheMode:(UIViewContentMode)finisheMode completedBlock:(SDWebImageCompletionWithFinishedBlock)completedBlock;
+
+
 /**
  *  图片下载结束之后所在的文件夹 默认为Document的根目录,传"default" 为SDWebImage自带的文件夹,其余为Document下的子文件夹
  */
