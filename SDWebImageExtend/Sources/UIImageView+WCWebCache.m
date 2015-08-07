@@ -87,11 +87,17 @@
     self.contentMode = imageViewData.defaultMode;
     SDWebImageManager* webImageManager = [[SDWebImageHelper shareInstance] imageManagerWithNamespaces:imageViewData.namespaces];
     SDWebImageOptions options = SDWebImageRetryFailed | SDWebImageLowPriority;
-    
     [self sd_cancelImageLoadOperationWithKey:@"TAUIImageViewImageLoad"];
     
+    UIImage* placeHolder = imageViewData.placeHolder;
+    SDImageCache* cache = [[SDWebImageHelper shareInstance] imageCacheWithNamespaces:imageViewData.namespaces];
+    placeHolder = [cache imageFromMemoryCacheForKey:imageViewData.url];
+    if(!placeHolder){
+        placeHolder = imageViewData.placeHolder;
+    }
+    
     if (!(options & SDWebImageDelayPlaceholder)) {
-        self.image = imageViewData.placeHolder;
+        self.image = placeHolder;
         [self setNeedsLayout];
     }
     
@@ -121,7 +127,7 @@
                     [wself setNeedsLayout];
                 } else {
                     if ((options & SDWebImageDelayPlaceholder)) {
-                        wself.image = imageViewData.placeHolder;
+                        wself.image = placeHolder;
                         [wself setNeedsLayout];
                     }
                 }
