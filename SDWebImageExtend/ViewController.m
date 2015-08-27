@@ -130,7 +130,7 @@ static  NSString *errorMessages[] = {
 
     NSString* url = errorMessages[indexPath.row];
     WCImageViewData* imagedata = [WCImageViewData imageDataWithURL:url placeHolder:[UIImage imageNamed:@"noimg_pane"]];
-    imagedata.namespaces = @"BEN";
+    imagedata.namespaces = @"Cache";
     [imageView setImageWithData:imagedata];
     return cell;
     

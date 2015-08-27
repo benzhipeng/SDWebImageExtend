@@ -46,6 +46,14 @@
     return path;
 }
 
++ (NSString*)cachePath:(NSString*)namespace{
+    
+    NSString *fullNamespace = [@"com.hackemist.SDWebImageCache." stringByAppendingString:namespace];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString* path = [paths[0] stringByAppendingPathComponent:fullNamespace];
+    return path;
+}
+
 + (BOOL)checkWheatherHasPropertyWithClass:(id)obj propertyName:(NSString*)propertyName
 {
     unsigned int i, count = 0;
@@ -81,7 +89,13 @@
 
         NSAssert([[self class] checkWheatherHasPropertyWithClass:cache propertyName:@"diskCachePath"] , @"源码中的diskCachePath字段不存在需要修改该字段");
         NSAssert([[self class] checkWheatherHasPropertyWithClass:manager propertyName:@"imageCache"] , @"源码中的imageCache字段不存在需要修改该字段");
-        [cache setValue:[[self class] docPath:namespaces] forKeyPath:@"diskCachePath"];
+        if ([namespaces isEqualToString:@"Cache"]) {
+            [cache setValue:[[self class] cachePath:@"default"] forKeyPath:@"diskCachePath"];
+        }else {
+            [cache setValue:[[self class] docPath:namespaces] forKeyPath:@"diskCachePath"];
+        }
+        
+        
         [manager setValue:cache forKeyPath:@"imageCache"];
         
         //先移除原有的通知
